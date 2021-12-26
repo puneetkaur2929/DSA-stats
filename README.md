@@ -1,2 +1,8 @@
 # DSA-stats
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub).
+<h1 align="center">Welcome! <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px">
+<p align="center">
+  <div>
+    By using <b><a href="https://github.com/QasimWani/LeetHub"> LeetHub </a></b> I am trying to keep track 
+    <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px" >  of the DSA problems I solved and this provides a very handy way to revise any problems I solved till now.
+  </div>
+</p>
