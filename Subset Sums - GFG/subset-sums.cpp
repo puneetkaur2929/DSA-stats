@@ -20,7 +20,7 @@ int sum(vector<int>arr,int n,int ansum,vector<int>&ans){
     {
         vector<int>ans;
         sum(arr,N-1,0,ans);
-        sort(ans.begin(),ans.end());
+        // sort(ans.begin(),ans.end());
         return ans;
     }
 };
