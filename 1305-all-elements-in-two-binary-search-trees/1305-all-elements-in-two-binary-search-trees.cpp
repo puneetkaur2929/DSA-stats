@@ -11,42 +11,33 @@
  */
 class Solution {
 public:
-   void tra(TreeNode * n,vector<int>&s){
-        if(n==NULL){
-            return;
-        }
-        if(n->left!=NULL){
-            tra(n->left,s);
-        }
-        s.push_back(n->val);
-        if(n->right!=NULL){
-            tra(n->right,s);
-        }
-    }
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
-        vector<int>f;
-        vector<int>t;
-        vector<int>ans;
-        tra(root1,f);
-        tra(root2,t);
-        int i=0;
-        int j=0;
-        while(i<f.size() && j<t.size()){
-            if(f[i]<=t[j]){
-                ans.push_back(f[i]);
-                i++;
+               stack<TreeNode *> st1, st2;
+                vector<int> res;
+        
+        while(root1 || root2 || !st1.empty() || !st2.empty()){
+            while(root1){
+                st1.push(root1);
+                root1 = root1->left;
             }
-            else if(f[i]>t[j]){
-                ans.push_back(t[j]);
-                j++;
+            while(root2){
+                st2.push(root2);
+                root2 = root2->left;
+            }
+            if(st2.empty() || (!st1.empty() && st1.top()->val <= st2.top()->val)){
+                root1 = st1.top();
+                st1.pop();
+                res.push_back(root1->val);
+                root1 = root1->right;
+            }
+            else{
+                root2 = st2.top();
+                st2.pop();
+                res.push_back(root2->val);
+                root2 = root2->right;
             }
         }
-        while(i<f.size()){
-            ans.push_back(f[i++]);
-        }
-        while(j<t.size()){
-            ans.push_back(t[j++]);
-        }
-        return ans;
+        return res;
+        
     }
 };
