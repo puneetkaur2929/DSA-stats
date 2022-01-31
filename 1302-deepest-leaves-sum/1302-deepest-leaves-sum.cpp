@@ -11,23 +11,16 @@
  */
 class Solution {
 public:
-    int LevelOrder(TreeNode *root)
-{
-    
+
+    int deepestLeavesSum(TreeNode* root) {
+            
     if (root == NULL) return 0;
- 
-    
     queue<TreeNode *> q;
- 
-    
     q.push(root);
- int nodesum=0;
-    while (q.empty() == false)
-    {
-         
+    int nodesum=0;
+    while (q.empty() == false){
         int nodeCount = q.size();
             nodesum=0;
-       
         while (nodeCount > 0)
         {
             TreeNode *node = q.front();
@@ -39,11 +32,8 @@ public:
                 q.push(node->right);
             nodeCount--;
         }
-        
     }
         return nodesum;
-}
-    int deepestLeavesSum(TreeNode* root) {
-        return LevelOrder(root);
+        
     }
 };
