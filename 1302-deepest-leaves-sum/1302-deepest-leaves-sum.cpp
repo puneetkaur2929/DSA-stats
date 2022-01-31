@@ -21,16 +21,15 @@ public:
     while (q.empty() == false){
         int nodeCount = q.size();
             nodesum=0;
-        while (nodeCount > 0)
+        for(int i=0;i<nodeCount;i++)
         {
-            TreeNode *node = q.front();
+            TreeNode* node = q.front();
             nodesum+=node->val;
             q.pop();
             if (node->left != NULL)
                 q.push(node->left);
             if (node->right != NULL)
                 q.push(node->right);
-            nodeCount--;
         }
     }
         return nodesum;
