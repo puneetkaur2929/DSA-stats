@@ -13,8 +13,9 @@ class Solution {
 public:
     void flatten(TreeNode* root) {
         if(root){
-            TreeNode*temp=root->right;
+           
             if(root->left!=NULL){
+                 TreeNode*temp=root->right;
                 root->right=root->left;
             root->left=NULL;
             TreeNode*node=root;
