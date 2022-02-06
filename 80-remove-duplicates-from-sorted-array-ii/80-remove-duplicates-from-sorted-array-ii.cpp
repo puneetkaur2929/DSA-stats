@@ -9,7 +9,6 @@ public:
                 if(j-i+1 >2){
                     for(int x=j;x<n-1;x++){
                         nums[x]=nums[x+1];
-                        
                     }
                     n=n-1;
                 }
