@@ -18,7 +18,7 @@ public:
         inor(ori->left,cop->left,tar);
         if(ori==tar && cop->val==tar->val){
             ans=cop;
-            return ;
+           
         }
         inor(ori->right,cop->right,tar);
     }
