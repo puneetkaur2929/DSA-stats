@@ -10,20 +10,33 @@
 
 class Solution {
 public:
-    TreeNode* ans;
-    void inor(TreeNode* ori,TreeNode* cop,TreeNode* tar){
-        if(ori==NULL || cop==NULL){
-            return;
-        }
-        inor(ori->left,cop->left,tar);
-        if(ori==tar && cop->val==tar->val){
-            ans=cop;
-           
-        }
-        inor(ori->right,cop->right,tar);
-    }
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
-        inor(original,cloned,target);
-        return ans;
+        if(original==NULL){
+            return NULL;
+        }
+        queue<TreeNode*>q1;
+        queue<TreeNode*>q2;
+        q1.push(original);
+        q2.push(cloned);
+        while(q1.front()!=target){
+            TreeNode* one=q1.front();
+            q1.pop();
+            if(one->left){
+                q1.push(one->left);
+            }
+             if(one->right){
+                q1.push(one->right);
+            }
+            TreeNode* one1=q2.front();
+            q2.pop();
+            if(one1->left){
+                q2.push(one1->left);
+            }
+             if(one1->right){
+                q2.push(one1->right);
+            }
+            
+        }
+        return q2.front();
     }
 };
