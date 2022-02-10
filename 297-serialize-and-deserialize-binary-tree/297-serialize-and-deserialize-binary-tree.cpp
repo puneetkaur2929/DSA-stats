@@ -26,12 +26,13 @@ public:
             }
             else{
                 s.append(to_string(node->val)+',');
-            }
-            
-            if(node!=NULL){
-                q.push(node->left);
+                  q.push(node->left);
                 q.push(node->right);
             }
+            
+//             if(node!=NULL){
+              
+//             }
             
             
         }
