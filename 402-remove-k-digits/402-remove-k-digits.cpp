@@ -8,20 +8,16 @@ public:
         s.push(num[0]);
         int i=1;
         for(i=1;i<num.length();i++){
-            if(num[i]==s.top()){
-                s.push(num[i]);
-            }
-            else if(s.top()<num[i] && !s.empty()){
-                s.push(num[i]);
-            }
-            else{
+           
+            if(num[i]<s.top()){
               while(k>0 && !s.empty() && num[i]<s.top()){
                   k--;
                     s.pop();
                     
               }
-                    s.push(num[i]);
+                   
                 }
+            s.push(num[i]);
                 
             }
            while(k!=0){
