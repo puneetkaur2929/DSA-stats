@@ -1,30 +1,23 @@
 class Solution {
 public:
        bool helper(int i,vector<int>&col,vector<vector<int>>adj){
-        queue<pair<int,int>>q;
-        q.push({i,-1});
+        queue<int>q;
+        q.push(i);
            col[i]=0;
         
         while(!q.empty()){
-            int fn=q.front().first;
-            int par=q.front().second;
+            int fn=q.front();
             q.pop();
             for(int it:adj[fn]){
                 if(col[it]==-1){
-                    q.push({it,fn});
-               
+                    q.push(it);
                     col[it]= (col[fn]==0) ?1 :0;
                 }
                 else{
-                  
                     if(col[fn]==col[it]){
                         return false;
-                    }
-                
-                    
-                }
-               
-                
+                    }  
+                }  
             }
         }
         return true;;
