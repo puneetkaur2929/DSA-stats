@@ -21,27 +21,37 @@ public:
 
 class Solution {
 public:
-    Node* cloneGraph(Node* node) {
-        if(node==NULL){
-            return NULL;
-        }
-        queue<Node*>q;
-        unordered_map<Node*,Node*>m;
-        Node* src=new Node(node->val);
-        m[node]=src;
-        q.push(node);
-        while(!q.empty()){
-            auto fn=q.front();
-            q.pop();
-            for(auto it:fn->neighbors){
-                if(m.find(it)==m.end()){
-                    Node* ne=new Node(it->val);
-                    q.push(it);
-                    m[it]=ne;
-                }
-                m[fn]->neighbors.push_back(m[it]);
+    void helper(Node* curr,Node* copy,vector<Node*> &vis){
+        vis[copy->val]=copy;
+         for(auto it:curr->neighbors){
+            if(vis[it->val]==NULL){
+                Node* nn=new Node(it->val);
+                (copy->neighbors).push_back(nn);
+                helper(it,nn,vis);
+            }
+            else{
+                (copy->neighbors).push_back(vis[it->val]);
             }
         }
-        return src;
+    }
+    Node* cloneGraph(Node* node) {
+        if(node==NULL){
+            return node;
+        }
+        vector<Node*>vis(1000,NULL);
+        Node* copy=new Node(node->val);
+        vis[copy->val]=copy;
+        for(auto it:node->neighbors){
+            if(vis[it->val]==NULL){
+                Node* nn=new Node(it->val);
+                (copy->neighbors).push_back(nn);
+                helper(it,nn,vis);
+            }
+            else{
+                (copy->neighbors).push_back(vis[it->val]);
+            }
+        }
+        return copy;
+        
     }
 };
