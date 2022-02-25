@@ -6,7 +6,7 @@ public:
         string tok1,tok2;
         if(version1.length()>=version2.length()){
             vector<int>v1;
-             string tok1;
+
              while(getline(s1,tok1,'.')){
             v1.push_back(stoi(tok1));
         }
@@ -33,7 +33,6 @@ public:
         }
        else{
            vector<int>v2;
-            string tok2;
             while(getline(s2,tok2,'.')){
             v2.push_back(stoi(tok2));
         }
