@@ -16,7 +16,6 @@ public:
         int j=0;
         int c1=0;
         int c2=0;
-        // cout<<" size "<<v1.size() <<" "<<v2.size()<<endl;
         while(i<v1.size() && j<v2.size()) {
            if(v1[i]<v2[j]){
                return -1;
@@ -30,7 +29,6 @@ public:
        
         if(i!=v1.size()){
             while(i<v1.size()){
-                 // cout<<v1[i]<<" "<<endl;
                if( v1[i]>0 ){
                   return 1;
                }
